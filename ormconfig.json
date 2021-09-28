@@ -4,7 +4,7 @@
   "port": 3306,
   "username": "root",
   "password": "12345qwert",
-  "database": "test",
+  "database": "ap129160",
   "synchronize": true,
   "logging": false,
   "entities": ["src/entity/**/*.ts"],
