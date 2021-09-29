@@ -1,20 +1,20 @@
-import { Entity, Column, PrimaryColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Photo {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ length: 100 })
   name: string;
 
-  @Column()
+  @Column("text")
   description: string;
 
   @Column()
   filename: string;
 
-  @Column()
+  @Column("double")
   views: number;
 
   @Column()
