@@ -5,7 +5,7 @@ const manager = getConnection().manager;
 await manager.save(photo);
 ```
 
-###  getConnection.manager
+###  getManager
 ```js
 import { getManager } from "typeorm";
 const manager = getManager();
