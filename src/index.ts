@@ -13,6 +13,7 @@ import {
   repository_find_photos,
   repository_save_photos,
   respository_mulapi_photos,
+  respository_crud_photos,
 } from "./repositories/photo";
 
 createConnection()
@@ -33,7 +34,8 @@ createConnection()
     console.info(" =============== Repository =============== ");
     // await repository_save_photos();
     // await repository_find_photos();
-    await respository_mulapi_photos();
+    // await respository_mulapi_photos();
+    await respository_crud_photos();
     console.info(" =============== Repository =============== ");
   })
   .catch((error) => console.log(error));
