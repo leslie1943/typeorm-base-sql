@@ -8,5 +8,7 @@ export const respository_crud_photos = async () => {
   await repos.save(firstPhoto);
 
   const toDelPhoto = await repos.findOne(12);
-  await repos.remove(toDelPhoto);
+  if (toDelPhoto) {
+    await repos.remove(toDelPhoto);
+  }
 };
