@@ -17,7 +17,7 @@ import {
 } from "./repositories/photo";
 
 // relation
-import { photo_OneToOne_meta } from "./relation";
+import { photo_OneToOne_meta, photo_Both_OneToOne_meta } from "./relation";
 
 createConnection()
   .then(async (connection) => {
@@ -46,6 +46,7 @@ createConnection()
     console.info(" =============== Repository Finish =============== ");
     console.info(" =============== Relation Start =============== ");
     await photo_OneToOne_meta();
+    await photo_Both_OneToOne_meta();
     console.info(" =============== Relation Finish =============== ");
   })
   .catch((error) => console.log(error));
