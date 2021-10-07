@@ -17,7 +17,11 @@ import {
 } from "./repositories/photo";
 
 // relation
-import { photo_OneToOne_meta, photo_Both_OneToOne_meta } from "./relation";
+import {
+  photo_OneToOne_meta,
+  photo_Both_OneToOne_meta,
+  photo_createQueryBuilder_OneToOne_meta,
+} from "./relation";
 
 createConnection()
   .then(async (connection) => {
@@ -44,9 +48,24 @@ createConnection()
     // await respository_mulapi_photos();
     // await respository_crud_photos();
     console.info(" =============== Repository Finish =============== ");
-    console.info(" =============== Relation Start =============== ");
+    console.info(" =============== Relation save Start =============== ");
     await photo_OneToOne_meta();
-    await photo_Both_OneToOne_meta();
     console.info(" =============== Relation Finish =============== ");
+
+    console.info(
+      " =============== Relation find by relations Start =============== "
+    );
+    await photo_Both_OneToOne_meta();
+    console.info(
+      " =============== Relation find by relations Finish =============== "
+    );
+
+    console.info(
+      " =============== Relation by createQueryBuilder Start =============== "
+    );
+    await photo_createQueryBuilder_OneToOne_meta();
+    console.info(
+      " =============== Relation by createQueryBuilder Finish =============== "
+    );
   })
   .catch((error) => console.log(error));
