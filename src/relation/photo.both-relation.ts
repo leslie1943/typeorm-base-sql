@@ -1,6 +1,5 @@
 import { getRepository } from "typeorm";
 import { Photo } from "../entity/Photo";
-import { PhotoMetadata } from "../entity/PhotoMetadata";
 
 export const photo_Both_OneToOne_meta = async () => {
   const repo_photo = await getRepository(Photo);
