@@ -21,7 +21,7 @@ export const photo_OneToOne_meta = async () => {
   metadata.compressed = true;
   metadata.comment = "cybershoot";
   metadata.orientation = "portait";
-  metadata.photo = photo;
+  metadata.photo = photo; // 区别于 cascade
 
   // 先保存 photo
   await repo_photo.save(photo);
