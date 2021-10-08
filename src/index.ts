@@ -14,6 +14,7 @@ import {
   repository_save_photos,
   respository_mulapi_photos,
   // respository_crud_photos,
+  photo_cascade_save,
 } from "./repositories/photo";
 
 // relation
@@ -49,13 +50,13 @@ createConnection()
     // await respository_crud_photos();
     console.info(" =============== Repository Finish =============== ");
     console.info(" =============== Relation save Start =============== ");
-    await photo_OneToOne_meta();
+    // await photo_OneToOne_meta();
     console.info(" =============== Relation Finish =============== ");
 
     console.info(
       " =============== Relation find by relations Start =============== "
     );
-    await photo_Both_OneToOne_meta();
+    // await photo_Both_OneToOne_meta();
     console.info(
       " =============== Relation find by relations Finish =============== "
     );
@@ -63,9 +64,13 @@ createConnection()
     console.info(
       " =============== Relation by createQueryBuilder Start =============== "
     );
-    await photo_createQueryBuilder_OneToOne_meta();
+    // await photo_createQueryBuilder_OneToOne_meta();
     console.info(
       " =============== Relation by createQueryBuilder Finish =============== "
     );
+
+    console.info(" =============== Cascade save Start =============== ");
+    await photo_cascade_save();
+    console.info(" =============== Cascade save Finish =============== ");
   })
   .catch((error) => console.log(error));
