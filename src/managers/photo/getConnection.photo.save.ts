@@ -1,5 +1,5 @@
 import { getConnection } from "typeorm";
-import { Photo } from "../../entity/Photo";
+import { Photo } from "../../entity/Photo.entity";
 
 export const createPhotoByGetConnectionManager = async () => {
   // Phto

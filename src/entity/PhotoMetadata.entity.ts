@@ -5,7 +5,7 @@ import {
   OneToOne,
   JoinColumn,
 } from "typeorm";
-import { Photo } from "./Photo";
+import { Photo } from "./Photo.entity";
 
 @Entity()
 export class PhotoMetadata {
@@ -48,5 +48,5 @@ export class PhotoMetadata {
    */
   @OneToOne((type) => Photo, (photo) => photo.metadata)
   @JoinColumn()
-  photo: Photo;
+  photo: Photo; // 使用了 @JoinColumn 会生成 photoId 列
 }

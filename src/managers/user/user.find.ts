@@ -1,5 +1,5 @@
 import { Connection } from "typeorm";
-import { User } from "../../entity/User";
+import { User } from "../../entity/User.entity";
 
 export const findAllUsers = async (connection: Connection) => {
   //   ------------ User

@@ -1,5 +1,5 @@
 import { getManager } from "typeorm";
-import { Photo } from "../../entity/Photo";
+import { Photo } from "../../entity/Photo.entity";
 
 export const createPhotoByGetManager = async () => {
   // Phto

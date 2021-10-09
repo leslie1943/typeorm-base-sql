@@ -1,5 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from "typeorm";
-import { PhotoMetadata } from "./PhotoMetadata";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToOne,
+  ManyToOne,
+} from "typeorm";
+import { PhotoMetadata } from "./PhotoMetadata.entity";
+import { Author } from "./Author.entity";
 @Entity()
 export class Photo {
   @PrimaryGeneratedColumn()
@@ -29,7 +36,21 @@ export class Photo {
   @OneToOne((type) => PhotoMetadata, (photoMetadata) => photoMetadata.photo, {
     cascade: true,
   })
-  metadata: PhotoMetadata; // metadata:元数据
+  metadata: PhotoMetadata; // metadata:元数据(不会生成列)
+
+  /**
+   * type => Author: 是一个函数, 返回我们想要与之建立关系的实体的类.
+   * 
+   . 双向关系 
+   * author => author.photos 用来指定反向关系的名称.
+   * Author 类的 <photos> 属性是在 Author 类中存储 photos 的地方
+   * 
+   * 多对一 / 一对多的关系, 拥有方总是多对一的.
+   * 这意味着使用 @ManyToOne 的类将存储相关对象(反向关系的)的id(Author中的id)
+   * ORM 将创建 author 表, 并且修改 photo 表, 添加新的 author列并为其创建外键.
+   */
+  @ManyToOne((type) => Author, (author) => author.photos)
+  author: Author; // authorId
 }
 
 /**

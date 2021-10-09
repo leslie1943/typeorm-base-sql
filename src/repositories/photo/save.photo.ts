@@ -1,5 +1,5 @@
 import { getRepository } from "typeorm";
-import { Photo } from "../../entity/Photo";
+import { Photo } from "../../entity/Photo.entity";
 
 export const repository_save_photos = async () => {
   // Phto

@@ -1,5 +1,5 @@
 import { getRepository } from "typeorm";
-import { Photo } from "../entity/Photo";
+import { Photo } from "../entity/Photo.entity";
 
 export const photo_createQueryBuilder_OneToOne_meta = async () => {
   const repo_photo = await getRepository(Photo);

@@ -1,5 +1,5 @@
 import { getRepository } from "typeorm";
-import { Photo } from "../../entity/Photo";
+import { Photo } from "../../entity/Photo.entity";
 
 export const respository_mulapi_photos = async () => {
   const photoRepository = getRepository(Photo);
