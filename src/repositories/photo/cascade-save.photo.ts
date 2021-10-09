@@ -1,6 +1,6 @@
 import { getRepository } from "typeorm";
-import { Photo } from "../../entity/Photo";
-import { PhotoMetadata } from "../../entity/PhotoMetadata";
+import { Photo } from "../../entity/Photo.entity";
+import { PhotoMetadata } from "../../entity/PhotoMetadata.entity";
 
 export const photo_cascade_save = async () => {
   const repo_photo = await getRepository(Photo);

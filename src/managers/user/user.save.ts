@@ -1,5 +1,5 @@
 import { Connection } from "typeorm";
-import { User } from "../../entity/User";
+import { User } from "../../entity/User.entity";
 
 export const createUser = async (connection: Connection) => {
   console.info("<<<<<<<<<<<<<< User save Entity Start >>>>>>>>>>>>>>");
