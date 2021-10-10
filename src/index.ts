@@ -22,6 +22,7 @@ import {
   photo_OneToOne_meta,
   photo_Both_OneToOne_meta,
   photo_createQueryBuilder_OneToOne_meta,
+  photo_many_2_many_album,
 } from "./relation";
 
 createConnection()
@@ -70,7 +71,15 @@ createConnection()
     );
 
     console.info(" =============== Cascade save Start =============== ");
-    await photo_cascade_save();
+    // await photo_cascade_save();
     console.info(" =============== Cascade save Finish =============== ");
+
+    console.info(
+      " =============== Photo ManyToMany Album Start =============== "
+    );
+    await photo_many_2_many_album();
+    console.info(
+      " =============== Photo ManyToMany Album Finish =============== "
+    );
   })
   .catch((error) => console.log(error));

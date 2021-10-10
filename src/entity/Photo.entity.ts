@@ -4,9 +4,11 @@ import {
   PrimaryGeneratedColumn,
   OneToOne,
   ManyToOne,
+  ManyToMany,
 } from "typeorm";
 import { PhotoMetadata } from "./PhotoMetadata.entity";
 import { Author } from "./Author.entity";
+import { Album } from "./Album.entity";
 @Entity()
 export class Photo {
   @PrimaryGeneratedColumn()
@@ -51,6 +53,10 @@ export class Photo {
    */
   @ManyToOne((type) => Author, (author) => author.photos)
   author: Author; // authorId
+
+  // 相对于 Albums, 添加反向关系到 Photo类
+  @ManyToMany((type) => Album, (album) => album.photos)
+  albums: Album[];
 }
 
 /**
