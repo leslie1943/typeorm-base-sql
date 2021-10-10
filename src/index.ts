@@ -23,6 +23,7 @@ import {
   photo_Both_OneToOne_meta,
   photo_createQueryBuilder_OneToOne_meta,
   photo_many_2_many_album,
+  photo_query_builder_complicated,
 } from "./relation";
 
 createConnection()
@@ -77,9 +78,16 @@ createConnection()
     console.info(
       " =============== Photo ManyToMany Album Start =============== "
     );
-    await photo_many_2_many_album();
+    // await photo_many_2_many_album();
     console.info(
       " =============== Photo ManyToMany Album Finish =============== "
+    );
+    console.info(
+      " =============== complicated query builder Start =============== "
+    );
+    await photo_query_builder_complicated();
+    console.info(
+      " =============== complicated query builder Finish =============== "
     );
   })
   .catch((error) => console.log(error));
