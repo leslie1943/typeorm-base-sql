@@ -26,11 +26,12 @@ import {
   photo_query_builder_complicated,
 } from "./relation";
 
+// connection
+import { photo_connection_createQueryBuilder } from "./connections";
+
 createConnection()
   .then(async (connection) => {
-    console.info(
-      " =============== Manager or Connection Start =============== "
-    );
+    console.info(">>Manager or Connection Start>>");
     // Users
     // await createUser(connection);
     // await findAllUsers(connection);
@@ -41,53 +42,39 @@ createConnection()
     // await findOnePhoto(connection);
     // await createPhotoByGetConnectionManager(); // getConnection
     // await createPhotoByGetManager(); // getManager
-    console.info(
-      " =============== Manager or Connection Finish =============== "
-    );
+    console.info(">>Manager or Connection Finish>>");
 
-    console.info(" =============== Repository Start  =============== ");
+    console.info(">>Repository Start >>");
     // await repository_save_photos();
     // await repository_find_photos();
     // await respository_mulapi_photos();
     // await respository_crud_photos();
-    console.info(" =============== Repository Finish =============== ");
-    console.info(" =============== Relation save Start =============== ");
+    console.info(">>Repository Finish>>");
+    console.info(">>Relation save Start>>");
     // await photo_OneToOne_meta();
-    console.info(" =============== Relation Finish =============== ");
+    console.info(">>Relation Finish>>");
 
-    console.info(
-      " =============== Relation find by relations Start =============== "
-    );
+    console.info(">>Relation find by relations Start>>");
     // await photo_Both_OneToOne_meta();
-    console.info(
-      " =============== Relation find by relations Finish =============== "
-    );
+    console.info(">>Relation find by relations Finish>>");
 
-    console.info(
-      " =============== Relation by createQueryBuilder Start =============== "
-    );
+    console.info(">>Relation by createQueryBuilder Start>>");
     // await photo_createQueryBuilder_OneToOne_meta();
-    console.info(
-      " =============== Relation by createQueryBuilder Finish =============== "
-    );
+    console.info(">>Relation by createQueryBuilder Finish>>");
 
-    console.info(" =============== Cascade save Start =============== ");
+    console.info(">>Cascade save Start>>");
     // await photo_cascade_save();
-    console.info(" =============== Cascade save Finish =============== ");
+    console.info(">>Cascade save Finish>>");
 
-    console.info(
-      " =============== Photo ManyToMany Album Start =============== "
-    );
+    console.info(">>Photo ManyToMany Album Start>>");
     // await photo_many_2_many_album();
-    console.info(
-      " =============== Photo ManyToMany Album Finish =============== "
-    );
-    console.info(
-      " =============== complicated query builder Start =============== "
-    );
-    await photo_query_builder_complicated();
-    console.info(
-      " =============== complicated query builder Finish =============== "
-    );
+    console.info(">>Photo ManyToMany Album Finish>>");
+    console.info(">>complicated query builder Start>>");
+    // await photo_query_builder_complicated();
+    console.info(">>complicated query builder Finish>>");
+
+    console.info(">>complicated query builder Start>>");
+    photo_connection_createQueryBuilder();
+    console.info(">>complicated query builder Start>>");
   })
   .catch((error) => console.log(error));
