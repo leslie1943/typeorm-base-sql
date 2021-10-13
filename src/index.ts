@@ -27,7 +27,10 @@ import {
 } from "./relation";
 
 // connection
-import { photo_connection_createQueryBuilder } from "./connections";
+import {
+  photo_connection_createQueryBuilder,
+  photo_connection_getRepository,
+} from "./connections";
 
 createConnection()
   .then(async (connection) => {
@@ -74,7 +77,8 @@ createConnection()
     console.info(">>complicated query builder Finish>>");
 
     console.info(">>complicated query builder Start>>");
-    photo_connection_createQueryBuilder();
+    // await photo_connection_createQueryBuilder();
+    await photo_connection_getRepository();
     console.info(">>complicated query builder Start>>");
   })
   .catch((error) => console.log(error));
