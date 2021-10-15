@@ -1,5 +1,11 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
+export enum UserRole {
+  MANAGER = "manager",
+  DEVELOPER = "developer",
+  TESTER = "tester",
+}
+
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -13,4 +19,11 @@ export class User {
 
   @Column()
   age: number;
+
+  @Column({
+    type: "enum",
+    enum: UserRole,
+    default: UserRole.DEVELOPER,
+  })
+  role: UserRole;
 }
