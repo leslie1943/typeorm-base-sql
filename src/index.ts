@@ -17,6 +17,8 @@ import {
   photo_cascade_save,
 } from "./repositories/photo";
 
+import { repo_save_user } from "./repositories/users";
+
 // relation
 import {
   photo_OneToOne_meta,
@@ -38,6 +40,7 @@ createConnection()
     // Users
     // await createUser(connection);
     // await findAllUsers(connection);
+    await repo_save_user();
 
     // Photos
     // await createPhoto(connection);
