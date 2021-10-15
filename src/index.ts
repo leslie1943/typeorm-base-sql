@@ -17,7 +17,7 @@ import {
   photo_cascade_save,
 } from "./repositories/photo";
 
-import { repo_save_user } from "./repositories/users";
+import { repo_save_user, repo_distinct_user } from "./repositories/users";
 
 // relation
 import {
@@ -40,7 +40,7 @@ createConnection()
     // Users
     // await createUser(connection);
     // await findAllUsers(connection);
-    await repo_save_user();
+    // await repo_save_user();
 
     // Photos
     // await createPhoto(connection);
@@ -81,7 +81,16 @@ createConnection()
 
     console.info(">>complicated query builder Start>>");
     // await photo_connection_createQueryBuilder();
-    await photo_connection_getRepository();
+    // await photo_connection_getRepository();
     console.info(">>complicated query builder Start>>");
+
+    console.info(">>Distinct User Start>>");
+    const distinctUsers: { firstName: string }[] = await repo_distinct_user();
+    console.info("distinctUsers", distinctUsers);
+    distinctUsers.forEach((item) => {
+      console.info(item.firstName);
+    });
+
+    console.info(">>Distinct User Finish>>");
   })
   .catch((error) => console.log(error));
