@@ -7,6 +7,7 @@ export const repo_distinct_user = async () => {
     .createQueryBuilder("user")
     .select("user.firstName", "firstName")
     .distinct()
+    .cache(60000)
     .getRawMany();
 
   console.info("distinct users", users);

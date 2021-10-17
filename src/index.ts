@@ -34,13 +34,17 @@ import {
   photo_connection_getRepository,
 } from "./connections";
 
+import {
+  what_is_getConnectionManager,
+  what_is_getConnection,
+} from "./built-in";
+
 createConnection()
   .then(async (connection) => {
     console.info(">>Manager or Connection Start>>");
     // Users
     // await createUser(connection);
     // await findAllUsers(connection);
-    // await repo_save_user();
 
     // Photos
     // await createPhoto(connection);
@@ -84,13 +88,26 @@ createConnection()
     // await photo_connection_getRepository();
     console.info(">>complicated query builder Start>>");
 
-    console.info(">>Distinct User Start>>");
-    const distinctUsers: { firstName: string }[] = await repo_distinct_user();
-    console.info("distinctUsers", distinctUsers);
-    distinctUsers.forEach((item) => {
-      console.info(item.firstName);
-    });
+    console.info(
+      ">>Create new user and Find Distinct User and cache in 1min Start>>"
+    );
+    await repo_save_user();
 
-    console.info(">>Distinct User Finish>>");
+    setInterval(async () => {
+      const distinctUsers: { firstName: string }[] = await repo_distinct_user();
+      console.info("distinctUsers", distinctUsers);
+      distinctUsers.forEach((item) => {
+        console.info(item.firstName);
+      });
+    }, 10000);
+
+    console.info(
+      ">>Create new user and Find Distinct User and cache in 1min Finish>>"
+    );
+
+    console.info("  built-in-api: getConnectionManager  ");
+    await what_is_getConnectionManager();
+    await what_is_getConnection();
+    console.info("  built-in-api: getConnectionManager  ");
   })
   .catch((error) => console.log(error));
