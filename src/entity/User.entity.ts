@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+} from "typeorm";
+import { Order } from "./Order.entity";
 
 export enum UserRole {
   MANAGER = "manager",
@@ -26,4 +33,7 @@ export class User {
     default: UserRole.DEVELOPER,
   })
   role: UserRole;
+
+  @OneToMany((type) => Order, (order) => order.user, { cascade: true })
+  order: Order[];
 }

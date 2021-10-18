@@ -39,6 +39,8 @@ import {
   what_is_getConnection,
 } from "./built-in";
 
+import { create_order_repo } from "./repositories/orders";
+
 createConnection()
   .then(async (connection) => {
     console.info(">>Manager or Connection Start>>");
@@ -91,23 +93,27 @@ createConnection()
     console.info(
       ">>Create new user and Find Distinct User and cache in 1min Start>>"
     );
-    await repo_save_user();
+    // await repo_save_user();
 
-    setInterval(async () => {
-      const distinctUsers: { firstName: string }[] = await repo_distinct_user();
-      console.info("distinctUsers", distinctUsers);
-      distinctUsers.forEach((item) => {
-        console.info(item.firstName);
-      });
-    }, 10000);
+    // setInterval(async () => {
+    //   const distinctUsers: { firstName: string }[] = await repo_distinct_user();
+    //   console.info("distinctUsers", distinctUsers);
+    //   distinctUsers.forEach((item) => {
+    //     console.info(item.firstName);
+    //   });
+    // }, 10000);
 
     console.info(
       ">>Create new user and Find Distinct User and cache in 1min Finish>>"
     );
 
     console.info("  built-in-api: getConnectionManager  ");
-    await what_is_getConnectionManager();
-    await what_is_getConnection();
+    // await what_is_getConnectionManager();
+    // await what_is_getConnection();
     console.info("  built-in-api: getConnectionManager  ");
+
+    console.info("  Order API Start  ");
+    await create_order_repo();
+    console.info("  Order API Start  ");
   })
   .catch((error) => console.log(error));
