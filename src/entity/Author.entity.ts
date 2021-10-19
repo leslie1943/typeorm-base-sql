@@ -23,5 +23,5 @@ export class Author {
    * 
    */
   @OneToMany((type) => Photo, (photo) => photo.author)
-  photos: Photo[]; // photos 元数据(不会生成列) 通过 photo 中的 author属性关联
+  photos: Photo[]; // photos (不会生成列) 通过 photo 中的 author 属性关联
 }

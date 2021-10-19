@@ -35,5 +35,5 @@ export class User {
   role: UserRole;
 
   @OneToMany((type) => Order, (order) => order.user, { cascade: true })
-  order: Order[];
+  orders: Order[]; // orders (不会生成列) 通过 order 中的 user 属性关联
 }
