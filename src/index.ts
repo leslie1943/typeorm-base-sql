@@ -17,7 +17,11 @@ import {
   photo_cascade_save,
 } from "./repositories/photo";
 
-import { repo_save_user, repo_distinct_user } from "./repositories/users";
+import {
+  repo_save_user,
+  repo_distinct_user,
+  raw_sql_user_query,
+} from "./repositories/users";
 
 // relation
 import {
@@ -113,7 +117,11 @@ createConnection()
     console.info("  built-in-api: getConnectionManager  ");
 
     console.info("  Order API Start  ");
-    await create_order_repo();
+    // await create_order_repo();
     console.info("  Order API Start  ");
+
+    console.info("  Raw SQL API Start  ");
+    await raw_sql_user_query();
+    console.info("  Raw SQL API Start  ");
   })
   .catch((error) => console.log(error));
