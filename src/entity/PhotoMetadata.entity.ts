@@ -47,6 +47,6 @@ export class PhotoMetadata {
    * 关系的拥有方包含数据库中具有外键的列.
    */
   @OneToOne((type) => Photo, (photo) => photo.metadata)
-  @JoinColumn()
+  @JoinColumn({ name: "photo_id" }) // change related column name
   photo: Photo; // 使用了 @JoinColumn 会生成 photoId 列
 }

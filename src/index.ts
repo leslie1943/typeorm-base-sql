@@ -62,7 +62,7 @@ createConnection()
 
     console.info(">>Repository Start >>");
     // await repository_save_photos();
-    // await repository_find_photos();
+    await repository_find_photos();
     // await respository_mulapi_photos();
     // await respository_crud_photos();
     console.info(">>Repository Finish>>");
@@ -121,7 +121,7 @@ createConnection()
     console.info("  Order API Start  ");
 
     console.info("  Raw SQL API Start  ");
-    await raw_sql_user_query();
+    // await raw_sql_user_query();
     console.info("  Raw SQL API Start  ");
   })
   .catch((error) => console.log(error));
