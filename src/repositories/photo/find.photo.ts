@@ -11,7 +11,8 @@ export const repository_find_photos = async () => {
   // );
 
   const singlePhoto = await repository_photo.findOne({
-    select: ["name"], // get name only
+    // use test only, not data found
+    select: ["name", "test"], // get name and test only
     where: { id: 38 },
   });
   if (singlePhoto) {
