@@ -1,17 +1,7 @@
 import { getRepository, getConnectionManager, getConnection } from "typeorm";
-import { User } from "../../entity/User.entity";
-
-/**
- * const query = `
-      SELECT
-        u.firstName "first",
-        u.lastName "last",
-      FROM
-        ap129160.user u
- */
 
 export const raw_sql_user_query = async () => {
-  const manager = getConnection().manager;
+  const { manager } = getConnection();
   const query = " SELECT firstName, lastName  FROM `user`";
   const data = await manager.query(query);
   console.log(
